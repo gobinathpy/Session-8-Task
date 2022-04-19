@@ -1,0 +1,187 @@
+1. https://github.com/rvsp/typescript-oops/blob/master/Practice/Movie.md
+
+class Movie {
+  // rating will be PG by default, if no value is provided it takes as PG
+  // check what are default parameters to understand this
+   constructor(title,studio,rating = "PG"){
+     this.title = title
+     this.studio = studio
+     this.rating = rating
+   }
+   getPG(arr){
+     let result = [];
+     arr.filter(movie => {
+        if(movie.rating === "PG") {
+          result.push(movie)
+        }
+     })
+     return result;
+    }
+}
+
+const movie = new Movie("Casino Royale", "Eon Productions","PG-13");
+const movie2 = new Movie("Doctor","SK Productions","PG");//movie 2
+const movie3 = new Movie("The Shawshank Redemption","Castle Rock Entertainment","R")
+const movie4 = new Movie("The Pursuit of Happyness","Columbia Pictures","PG13");
+const movie5 = new Movie("National Treasure","Walt Disney","PG");
+let moviesArr = [movie,movie2,movie3,movie4,movie5];
+console.log(movie.getPG(moviesArr));
+
+// output:[ Movie { title: 'Doctor', studio: 'SK Productions', rating: 'PG' },
+//   Movie {
+//     title: 'National Treasure',
+//     studio: 'Walt Disney',
+//     rating: 'PG' } ]]
+
+//------------------------------------------------------------------------------------------------------
+
+2.https://github.com/rvsp/typescript-oops/blob/master/Practice/class-circle.md
+
+class Circle{
+    
+    constructor(radius,color)
+    {
+        this.radius=radius;
+        
+        this.color=color;
+        
+    }
+    
+    getradius(){
+        
+        return `Radius= ${this.radius}`;
+    }
+    
+      setradius(){
+        this.radius=newrad;
+        
+        return `New Radius= ${this.radius}`;
+    }
+    
+      getcolor(){
+        
+        return `Color= ${this.color}`;
+    }
+    
+     setcolor(){
+        
+             this.color=newcor;
+             
+        return `New Color= ${this.color}`;
+
+    }
+    
+     getArea(){
+         
+         return `Area= ${Math.PI*Math.pow(this.radius,2)}`;
+        
+    }
+    
+     getCircumference(){ 
+         
+         return `Circumference= ${2*Math.PI*this.radius}`;
+        
+    }
+    
+}
+
+
+var newrad= 15;
+
+let newcor="green";
+
+let value= new Circle(5,"red");
+
+console.log(value.getradius());
+
+console.log(value.setradius());
+
+console.log(value.getcolor());
+
+console.log(value.setcolor());
+
+console.log(value.getArea());
+
+console.log(value.getCircumference());
+
+//output:Radius= 5
+// New Radius= 15
+// Color= red
+// New Color= green
+// Area= 706.8583470577034
+// Circumference= 94.24777960769379
+
+//------------------------------------------------------------------------------------------------------
+
+3. Write a “person” class to hold all the details.
+
+class Person{
+    constructor(name,profession,height,weight,age){
+        
+        this.name = name;
+        this.profession = profession;
+        this.height = height;
+        this.weight = weight;
+        this.age = age;
+        this.loc = loc;
+    }
+    biodata(){
+        let det =`
+        Name : ${this.name}
+        Profession : ${this.profession}
+        Height : ${this.height}
+        Weight : ${this.weight}
+        Age : ${this.age}
+        Location : ${this.loc}
+        `;
+    return det;
+        
+    }
+    
+}
+
+let details = new Person("Arnold schwarzenegger","Actor","6.2","90kgs","75","California");
+
+console.log(details.biodata());
+
+//------------------------------------------------------------------------------------------------------
+
+4) write a class to calculate uber price.
+
+class Uber{
+    
+    constructor(kilometer,rateperkm,waitingchargepermin,waitingtime){
+        
+        this.kilometer = kilometer;
+        
+        this.rateperkm = rateperkm;
+        
+        this.waitingchargepermin = waitingchargepermin;
+        
+        this.waitingtime = waitingtime;
+    }
+    
+    totalfare(){
+        
+    let totalcost = this.kilometer * this.rateperkm;
+    
+    if(this.kilometer > 10)
+    
+    return `Totalcost : ${totalcost}`;
+    
+    else
+    
+    totalcost=this.kilometer * this.rateperkm + this.waitingtime * this.waitingchargepermin;
+    
+     return `Totalcost : ${totalcost}`;
+    }
+    
+}
+
+let uberprice=new Uber(7,14,3,10);
+
+console.log(uberprice.totalfare());
+
+//output:Totalcost : 128
+
+//-------------------------------------End-----------------------------------------------------------------
